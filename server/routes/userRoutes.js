@@ -1,13 +1,13 @@
 import express from "express";
 
-import User from "../models/userModel.js";
+import {
+  getAllUsers,
+  updateUser,
+  deleteUser,
+} from "../controllers/userController.js";
 
 const router = express.Router();
 
-router
-  .route("/")
-  .get((req, res) => res.send("Get all users"))
-  .patch((req, res) => res.send("update user"))
-  .delete((req, res) => res.send("delete user"));
+router.route("/").get(getAllUsers).patch(updateUser).delete(deleteUser);
 
 export default router;

@@ -25,12 +25,13 @@ const populateDB = async () => {
     const avatarSVG = avatarRes.data;
 
     // add to the dataBase
-    const { name, username, email, phone } = data[index];
+    const { name, username, email, phone, website } = data[index];
     const createdUser = await User.create({
       name,
       userName: username,
       email,
       phone,
+      website,
       displayImage: avatarSVG,
     });
 

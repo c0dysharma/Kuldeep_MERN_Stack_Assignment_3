@@ -18,6 +18,10 @@ const userSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  website: {
+    type: String,
+    required: true,
+  },
   isLoved: {
     type: Boolean,
     default: false,
