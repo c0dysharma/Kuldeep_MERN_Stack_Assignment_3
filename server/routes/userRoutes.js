@@ -8,6 +8,7 @@ import {
 
 const router = express.Router();
 
-router.route("/").get(getAllUsers).patch(updateUser).delete(deleteUser);
+router.route("/").get(getAllUsers).patch(updateUser);
+router.route("/:id").delete(deleteUser);
 
 export default router;

@@ -46,7 +46,7 @@ export const updateUser = async (req, res) => {
   }
 };
 export const deleteUser = async (req, res) => {
-  const { id } = req.body;
+  const id = req.params.id;
   try {
     if (!id && !(await User.findById(id)))
       return res.status(404).send({
