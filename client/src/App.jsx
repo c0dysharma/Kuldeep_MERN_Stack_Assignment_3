@@ -1,4 +1,4 @@
-import { Modal } from "antd";
+import { Modal, List } from "antd";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -81,16 +81,29 @@ function App() {
         <Form formValue={modelValue} onFormChange={handleFormChange} />
       </Modal>
 
-      {user.map((userVal) => (
-        <Card
-          key={userVal._id}
-          width="300px"
-          user={userVal}
-          onLike={onLikeHandler}
-          onEdit={onEditHandler}
-          onDelete={onDeleteHandler}
-        />
-      ))}
+      <List
+        grid={{
+          gutter: 16,
+          xs: 1,
+          sm: 2,
+          md: 3,
+          lg: 4,
+          xl: 5,
+          xxl: 5,
+        }}
+        dataSource={user}
+        renderItem={(userVal) => (
+          <List.Item>
+            <Card
+              key={userVal._id}
+              user={userVal}
+              onLike={onLikeHandler}
+              onEdit={onEditHandler}
+              onDelete={onDeleteHandler}
+            />
+          </List.Item>
+        )}
+      />
     </div>
   );
 }
