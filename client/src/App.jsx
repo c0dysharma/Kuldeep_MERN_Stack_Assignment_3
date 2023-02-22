@@ -5,28 +5,29 @@ import axios from "axios";
 import { Card, Form } from "./components";
 
 function App() {
+  const baseURL = "http://localhost:3000";
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [user, setUser] = useState([]);
 
   const getUsers = async () => {
-    const result = await axios.get("http://localhost:3000/api/v1/user");
+    const result = await axios.get(`${baseURL}/api/v1/user`);
+
     if (result.data.success) setUser(result.data.data);
     else alert(result.data.message);
   };
 
   const updateUser = async (newUserData) => {
-    const result = await axios.patch("http://localhost:3000/api/v1/user", {
+    const result = await axios.patch(`${baseURL}/api/v1/user`, {
       ...newUserData,
       id: newUserData._id,
     });
+
     if (result.data.success) getUsers();
     else alert(result.data.message);
   };
 
   const deleteUser = async (id) => {
-    const result = await axios.delete(
-      `http://localhost:3000/api/v1/user/${id}`
-    );
+    const result = await axios.delete(`${baseURL}/api/v1/user/${id}`);
 
     console.log(result.data);
     if (result.data.success) getUsers();
