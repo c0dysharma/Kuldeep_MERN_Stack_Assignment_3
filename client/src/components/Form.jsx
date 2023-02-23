@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Input } from "antd";
 
-const FormCompo = ({ onFinish, onFinishFailed, formValue, onFormChange }) => {
+const FormCompo = ({ formValue, onFormChange }) => {
   return (
     <Form
       name="basic"
@@ -14,8 +14,6 @@ const FormCompo = ({ onFinish, onFinishFailed, formValue, onFormChange }) => {
       style={{
         maxWidth: 600,
       }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
       autoComplete="off"
     >
       <Form.Item

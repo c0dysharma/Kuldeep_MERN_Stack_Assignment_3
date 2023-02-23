@@ -31,14 +31,23 @@ const CardCompo = ({ width, user, onLike, onEdit, onDelete }) => {
       actions={[
         user.isLoved ? (
           <HeartFilled
-            style={{ color: "red" }}
+            style={{ fontSize: "20px", color: "red" }}
             onClick={() => onLike(user._id)}
           />
         ) : (
-          <HeartOutlined onClick={() => onLike(user._id)} />
+          <HeartOutlined
+            style={{ fontSize: "20px", color: "red" }}
+            onClick={() => onLike(user._id)}
+          />
         ),
-        <EditOutlined onClick={() => onEdit(user._id)} />,
-        <DeleteFilled onClick={() => onDelete(user._id)} />,
+        <EditOutlined
+          style={{ fontSize: "20px" }}
+          onClick={() => onEdit(user._id)}
+        />,
+        <DeleteFilled
+          style={{ fontSize: "20px" }}
+          onClick={() => onDelete(user._id)}
+        />,
       ]}
     >
       <Meta title={user.name} description={<CardBody userDetails={user} />} />
