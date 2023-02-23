@@ -4,6 +4,7 @@ import {
   HeartFilled,
   DeleteFilled,
 } from "@ant-design/icons";
+import { AiOutlineMail, BsGlobe, AiOutlinePhone } from "react-icons/all";
 
 import { Card } from "antd";
 const { Meta } = Card;
@@ -12,9 +13,18 @@ import parse from "html-react-parser";
 const CardBody = ({ userDetails }) => {
   return (
     <div>
-      <p>{userDetails.email}</p>
-      <p>{userDetails.phone}</p>
-      <p>{userDetails.website}</p>
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <AiOutlineMail />
+        <span style={{ "margin-left": "10px" }}>{userDetails.email}</span>
+      </div>
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <BsGlobe />
+        <span style={{ "margin-left": "10px" }}>{userDetails.website}</span>
+      </div>
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <AiOutlinePhone />
+        <span style={{ "margin-left": "10px" }}>{userDetails.phone}</span>
+      </div>
     </div>
   );
 };

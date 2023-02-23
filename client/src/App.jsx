@@ -5,7 +5,7 @@ import axios from "axios";
 import { Card, Form } from "./components";
 
 function App() {
-  const baseURL = "http://localhost:3000";
+  const baseURL = "https://mern-stack-assignment-3.onrender.com";
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [user, setUser] = useState([]);
 
